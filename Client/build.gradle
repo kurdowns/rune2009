@@ -1,0 +1,30 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply plugin: 'application'
+
+mainClassName = 'org.runite.Client'
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    implementation name: 'clientlibs'
+    implementation name: 'discord-rpc'
+}
+
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.runite.Client'
+        )
+    }
+    archiveBaseName = 'client'
+    archiveVersion =  '1.0.0'
+}
